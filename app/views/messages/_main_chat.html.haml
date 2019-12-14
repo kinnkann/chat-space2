@@ -1,0 +1,17 @@
+.chat-main
+ .main-header
+  .main-header__left-box
+   %h2.main-header__left-box__current-group
+    = @group.name
+   %ul.main-header__left-box__member-list 
+    %li.main-header__left-box__member-list__member 
+     - @group.users.each do |user|
+      = user.name
+  .main-header__edit-btn 
+   = link_to "Edit", "/groups/#{current_user.id}/edit"
+ .messages
+  .message
+   = render @messages
+
+ .form
+  = render "from"
